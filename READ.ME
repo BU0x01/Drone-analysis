@@ -1,0 +1,58 @@
+# 🌿 Smart Campus Vegetation Mapper using Drones
+
+A lightweight drone-based system for capturing and analyzing vegetation data using aerial imagery, computer vision, and geospatial mapping.
+
+---
+
+## 📸 Overview
+
+This project leverages a DJI Tello drone, Python, and machine learning to identify and map different vegetation types (grass, trees, and dry patches) across a university campus. Captured images are processed to estimate vegetation health and are displayed on interactive geospatial maps.
+
+---
+
+## 🧠 Features
+
+- Autonomous image capture using DJI Tello and Python SDK
+- Image segmentation for vegetation health estimation
+- ML classification of grass, trees, and dead patches using MobileNetV2
+- Geospatial mapping with Folium and GPS tagging
+- Interactive map output with vegetation overlays
+
+---
+
+## 🚁 Tech Stack
+
+- Python, OpenCV, PyTorch, Torchvision
+- DJI Tello SDK (`djitellopy`)
+- Folium (for map visualization)
+- PIL, NumPy
+- Pre-trained MobileNetV2 (Transfer Learning)
+
+---
+
+## 🛠️ How It Works
+
+1. **Image Capture**: The drone autonomously captures aerial images of target zones.
+2. **Vegetation Segmentation**: Green regions are segmented to estimate vegetation health.
+3. **Classification**: Cropped image patches are passed through a trained MobileNetV2 model to classify into:
+   - 🌿 Grass  
+   - 🌳 Trees  
+   - 🍂 Dead/Dry Vegetation  
+4. **Geotagging**: GPS coordinates are logged manually or via drone metadata.
+5. **Visualization**: Classified images are visualized on an interactive map using Folium.
+
+---
+
+## 🧪 Machine Learning Model
+
+- **Model**: MobileNetV2 (pretrained, fine-tuned)
+- **Classes**: `['grass', 'tree', 'dead']`
+- **Input Size**: 224x224 RGB image patches
+- **Training**: ~100–300 labeled images per class (custom dataset or public aerial vegetation sets)
+
+---
+
+## 📍 Sample Output
+
+![Example map screenshot](sample_map.png)  
+*Interactive map with vegetation types marked by location and health status.*
